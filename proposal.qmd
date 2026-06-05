@@ -29,16 +29,64 @@ library(tidyverse)
 ```{r}
 #| label: load-dataset
 #| message: false
+# FrogID data
+frogID_data <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-09-02/frogID_data.csv')
+
+# Frog name data
+frog_names <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-09-02/frog_names.csv')
 ```
 
-A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.
+**A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.**
 
-Make sure to load the data and use inline code for some of this information.
+Data set: Australian frogs
+
+This data set contains 2023 data from the app, FrogID. FrogID is an Australian app that allows people to submit frog calls and museum experts can identify the type of frog. Along with the FrogID data, there is an additional table that includes their names.
+
+**Make sure to load the data and use inline code for some of this information.**
 
 ## Questions
 
-The two questions you want to answer.
+1.  What is the spatiotemporal distribution of Australian frog occurrences, and how does call frequency change across seasons?
+2.  Do geographic hotspots with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?
 
 ## Analysis plan
 
--   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+-   **A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).**
+-   What is the spatiotemporal distribution of Australian frog occurrences, and how does call frequency change across seasons?
+    -   Because Australia is in the southern hemisphere, their months for seasons are not the same as North America -- Use the "eventDate" variable to determine month and then season
+
+        -   Fall: March, April, May
+
+        -   Winter: June, July, August
+
+        -   Spring: September, October, November
+
+        -   Summer: December, January, February
+
+    -   Would like to make a map of Australia
+
+        -   "decimalLatitude" and "decimalLongitude" variables to plot where each of these calls are taking place in Australia. Additionally, map out the provinces using the "stateProvince" variable.
+
+            -   Try to map the provinces?
+
+            -   Make four different plots for each season -- in each plot is a map of Australia and its provinces with the density of frog occurrences perhaps using a heat map?
+-   Do geopgraphic areas with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?
+    -   Based off the previous data, we will be able to determine geographically where the most frog occurrences.
+    -   Would have to be able to determine what is considered the equatorial, tropical, subtropical, desert, grassland, temperate
+        -   Make a visual of Australia defined by the different geographical regions equatorial, tropical, subtropical, desert, grassland, temperate.
+        -   Should be able to find a map online with regions and be able to map it
+        -   https://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=koppen_major_AGCDv2\_&period=1991-2020
+    -   To determine taxonomic diversity, use the subfamily or tribe -- see which one is better.
+        -   Figure out how to plot the number of different subfamilies/tribes per geographical region
+        -   Bar chart:
+            -   x-axis: region
+            -   y-axis: number of different subfamilies
+        -   Maybe another plot that is the bar chart but stacked with the different subfamilies?
+
+## Weekly project plan table
+
+| **Task Name** | **Status** | **Due** | **Priority** | **Summary** |
+|---------------|------------|---------|--------------|-------------|
+|               |            |         | Low          |             |
+|               |            |         | Moderate     |             |
+|               |            |         | High         |             |
