@@ -2,30 +2,30 @@
   {
     "objectID": "proposal.html",
     "href": "proposal.html",
-    "title": "Proposal title",
+    "title": "Analysis of FrogID Data",
     "section": "",
-    "text": "library(tidyverse)"
+    "text": "Data set: Australian frogs\nThis data set contains 2023 data from the app, FrogID. FrogID is an Australian app that allows people to submit frog calls and museum experts can identify the type of frog. Along with the FrogID data, there is an additional table that includes their names.\nThe frogID dataset contains 11 columns by 136621 rows. The dataset contains the following information:\n\noccurrenceID\neventID\ndecimalLatitude\ndecimalLongitude\nscientificName\neventDate\neventTime\ntimeZone\ncoordinateUncertaintyInMeters\nrecordedBy\nstateProvince\n\nThe frog names dataset contains 5 columns and 294 rows. The dataset contains the following information:\n\nsubfamily\ntribe\nscientificName\ncommonName\nsecondary_commonNames"
   },
   {
     "objectID": "proposal.html#dataset",
     "href": "proposal.html#dataset",
-    "title": "Proposal title",
-    "section": "Dataset",
-    "text": "Dataset\nA brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.\nMake sure to load the data and use inline code for some of this information."
+    "title": "Analysis of FrogID Data",
+    "section": "",
+    "text": "Data set: Australian frogs\nThis data set contains 2023 data from the app, FrogID. FrogID is an Australian app that allows people to submit frog calls and museum experts can identify the type of frog. Along with the FrogID data, there is an additional table that includes their names.\nThe frogID dataset contains 11 columns by 136621 rows. The dataset contains the following information:\n\noccurrenceID\neventID\ndecimalLatitude\ndecimalLongitude\nscientificName\neventDate\neventTime\ntimeZone\ncoordinateUncertaintyInMeters\nrecordedBy\nstateProvince\n\nThe frog names dataset contains 5 columns and 294 rows. The dataset contains the following information:\n\nsubfamily\ntribe\nscientificName\ncommonName\nsecondary_commonNames"
   },
   {
     "objectID": "proposal.html#questions",
     "href": "proposal.html#questions",
-    "title": "Proposal title",
+    "title": "Analysis of FrogID Data",
     "section": "Questions",
-    "text": "Questions\nThe two questions you want to answer."
+    "text": "Questions\n\nWhat is the spatiotemporal distribution of Australian frog occurrences, and how does call frequency change across seasons?\nDo geographic hotspots with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?"
   },
   {
     "objectID": "proposal.html#analysis-plan",
     "href": "proposal.html#analysis-plan",
-    "title": "Proposal title",
+    "title": "Analysis of FrogID Data",
     "section": "Analysis plan",
-    "text": "Analysis plan\n\nA plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any)."
+    "text": "Analysis plan\nQuestion 1: What is the spatiotemporal distribution of Australian frog occurrences, and how does call frequency change across seasons?\n\nDue to Australia being in the southern hemisphere, their months for seasons are not the same as North America – Use eventDate to determine month and then season.\n\nFall: March, April, May\nWinter: June, July, August\nSpring: September, October, November\nSummer: December, January, February\n\nMake a map of Australia\n\nUse decimalLatitude and decimalLongitude variables to plot where each of these calls are taking place in Australia. Additionally, map out the provinces using the stateProvince variable.\n\nMap the provinces\nMake four different plots for each season – in each plot is a map of Australia and its provinces with the density of frog occurrences perhaps using a heat map.\n\n\n\nQuestion 2: Do geographic areas with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?\n\nBased off the previous data, we will be able to determine geographically where the most frog occurrences.\nDetermine what is considered the equatorial, tropical, subtropical, desert, grassland, temperate.\n\nMake a visual of Australia defined by the different geographical regions equatorial, tropical, subtropical, desert, grassland, temperate.\nFind a map online with regions and map it to preexisting map of Australia.\n\nhttps://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=koppen_major_AGCDv2_&period=1991-2020\n\n\nTo determine taxonomic diversity, use the subfamily or tribe – see which one is better.\n\nPlot the number of different subfamilies/tribes per geographical region.\nBar chart:\n\nx-axis: region\ny-axis: number of different subfamilies\n\nGraph another plot that is the bar chart but stacked with the different subfamilies.\n-   Try to map the provinces\n\n-   Make four different plots for each season -- in each plot is a map of Australia and its provinces with the density of frog occurrences perhaps using a heat map\n\nDo geographic areas with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?\n\nBased off the previous data, we will be able to determine geographically where the most frog occurrences.\nWould have to be able to determine what is considered the equatorial, tropical, subtropical, desert, grassland, temperate\n\nMake a visual of Australia defined by the different geographical regions equatorial, tropical, subtropical, desert, grassland, temperate.\nShould be able to find a map online with regions and be able to map it\nhttps://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=koppen_major_AGCDv2_&period=1991-2020\n\nTo determine taxonomic diversity, use the subfamily or tribe – see which one is better.\n\nFigure out how to plot the number of different subfamilies/tribes per geographical region\nBar chart:\n\nx-axis: region\ny-axis: number of different subfamilies\n\nMaybe another plot that is the bar chart but stacked with the different subfamilies"
   },
   {
     "objectID": "index.html",
@@ -45,22 +45,22 @@
     "objectID": "presentation.html#quarto",
     "href": "presentation.html#quarto",
     "title": "Project title",
-    "section": "Quarto",
-    "text": "Quarto\n\nThe presentation is created using the Quarto CLI\n## sets the start of a new slide"
+    "section": "",
+    "text": "The presentation is created using the Quarto CLI\n## sets the start of a new slide"
   },
   {
     "objectID": "presentation.html#layouts",
     "href": "presentation.html#layouts",
     "title": "Project title",
-    "section": "Layouts",
-    "text": "Layouts\nYou can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\n\nlike\nthis\n\nAnd add footnotes"
+    "section": "",
+    "text": "You can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\n\nlike\nthis"
   },
   {
     "objectID": "presentation.html#code",
     "href": "presentation.html#code",
     "title": "Project title",
-    "section": "Code",
-    "text": "Code\n\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic       p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept)   25.3      3.08        8.22 0.00000000358\n2 speed         -0.116    0.0642     -1.81 0.0806       \n\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;"
+    "section": "",
+    "text": "# A tibble: 2 × 5\n  term        estimate std.error statistic       p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept)   25.3      3.08        8.22 0.00000000358\n2 speed         -0.116    0.0642     -1.81 0.0806       \n\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;"
   },
   {
     "objectID": "presentation.html#plots",
@@ -73,8 +73,8 @@
     "objectID": "presentation.html#plot-and-text",
     "href": "presentation.html#plot-and-text",
     "title": "Project title",
-    "section": "Plot and text",
-    "text": "Plot and text\n\n\n\nSome text\ngoes here"
+    "section": "",
+    "text": "Some text\ngoes here"
   },
   {
     "objectID": "presentation.html#tables",
@@ -88,7 +88,7 @@
     "href": "presentation.html#images",
     "title": "Project title",
     "section": "Images",
-    "text": "Images\n\nImage credit: Danielle Navarro, Percolate."
+    "text": "Images\n\n\n\nImage credit: Danielle Navarro, Percolate."
   },
   {
     "objectID": "presentation.html#math-expressions",
@@ -110,5 +110,40 @@
     "title": "About",
     "section": "",
     "text": "This project was developed by [Team Name] For INFO 526 - Data Analysis and Visualization at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.\n\nTeam member 1: One sentence description of Team member 1 (e.g., year, major, etc.).\nTeam member 2: One sentence description of Team member 2 (e.g., year, major, etc.).\nTeam member 3: One sentence description of Team member 3 (e.g., year, major, etc.).\nTeam member 4: One sentence description of Team member 4 (e.g., year, major, etc.)."
+  },
+  {
+    "objectID": "proposal.html#motivation",
+    "href": "proposal.html#motivation",
+    "title": "Analysis of FrogID Data",
+    "section": "Motivation",
+    "text": "Motivation\nI majored in biology in undergraduate and really enjoyed the ecology electives I took. Additionally, I love watching nature and animal documentaries so choosing a frog data set seemed fitting and peaked my interest."
+  },
+  {
+    "objectID": "proposal.html#weekly-project-plan-table",
+    "href": "proposal.html#weekly-project-plan-table",
+    "title": "Analysis of FrogID Data",
+    "section": "Weekly project plan table",
+    "text": "Weekly project plan table\n\n\n\n\n\n\n\n\n\n\nTask Name\nStatus\nDue\nPriority\nSummary\n\n\n\n\nPeer review\nIn progress\n6/12/26\nHigh\nReach out to peer reviewers\n\n\nMake adjustments after peer reviews\nIncomplete\n6/12/26\nModerate\nAdjust after peer review deadline\n\n\nData wrangling\nIncomplete\n6/14/26\nHigh\nNeed to make new variables for seasons"
+  },
+  {
+    "objectID": "presentation.html",
+    "href": "presentation.html",
+    "title": "Project title",
+    "section": "",
+    "text": "The presentation is created using the Quarto CLI\n## sets the start of a new slide\n\n\n\n\nYou can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\n\nlike\nthis\n\n\n\n\n\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic       p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept)   25.3      3.08        8.22 0.00000000358\n2 speed         -0.116    0.0642     -1.81 0.0806       \n\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSome text\ngoes here"
+  },
+  {
+    "objectID": "presentation.html#footnotes",
+    "href": "presentation.html#footnotes",
+    "title": "Project title",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nAnd add footnotes↩︎"
+  },
+  {
+    "objectID": "proposal.html#motivation-1",
+    "href": "proposal.html#motivation-1",
+    "title": "Analysis of FrogID Data",
+    "section": "Motivation",
+    "text": "Motivation\nI majored in biology in undergraduate and really enjoyed the ecology electives I took. Additionally, I love watching nature and animal documentaries so choosing a frog data set seemed fitting and peaked my interest."
   }
 ]

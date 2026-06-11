@@ -26,7 +26,9 @@ execute:
 library(tidyverse)
 ```
 
+
 ## Dataset
+
 
 ```{r}
 #| label: load-dataset
@@ -37,6 +39,7 @@ frogID_data <- readr::read_csv('https://raw.githubusercontent.com/rfordatascienc
 # Frog name data
 frog_names <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-09-02/frog_names.csv')
 ```
+
 
 Data set: Australian frogs
 
@@ -140,3 +143,4 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
 | Peer review                         | In progress | 6/12/26 | High         | Reach out to peer reviewers            |
 | Make adjustments after peer reviews | In progress | 6/12/26 | Moderate     | Waiting for 2nd peer review            |
 | Data wrangling                      | Incomplete  | 6/14/26 | High         | Need to make new variables for seasons |
+

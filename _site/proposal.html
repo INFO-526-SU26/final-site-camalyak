@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Team Name">
-<meta name="description" content="Project description">
+<meta name="author" content="Kayla Mac">
+<meta name="description" content="Using data from an Australian application, FrogID, two questions will be answered: how does frog call frequency across seasons and how does taxonomic diversity differ across Australia.">
 
-<title>Project Title - Proposal title</title>
+<title>Project Title - Analysis of FrogID Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4472,8 +4472,7 @@ vertical-align: -.125em;
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-submit-button-title": "Submit"
   }
 }</script>
 
@@ -4538,8 +4537,11 @@ vertical-align: -.125em;
    
   <ul>
   <li><a href="#dataset" id="toc-dataset" class="nav-link active" data-scroll-target="#dataset">Dataset</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
+  <li><a href="#motivation-1" id="toc-motivation-1" class="nav-link" data-scroll-target="#motivation-1">Motivation</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   <li><a href="#analysis-plan" id="toc-analysis-plan" class="nav-link" data-scroll-target="#analysis-plan">Analysis plan</a></li>
+  <li><a href="#weekly-project-plan-table" id="toc-weekly-project-plan-table" class="nav-link" data-scroll-target="#weekly-project-plan-table">Weekly project plan table</a></li>
   </ul>
 </nav>
     </div>
@@ -4548,13 +4550,13 @@ vertical-align: -.125em;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Proposal title</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Analysis of FrogID Data</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 <p class="subtitle lead">Proposal</p>
 </div>
 
 <div>
   <div class="description">
-    Project description
+    Using data from an Australian application, FrogID, two questions will be answered: how does frog call frequency across seasons and how does taxonomic diversity differ across Australia.
   </div>
 </div>
 
@@ -4563,7 +4565,7 @@ vertical-align: -.125em;
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author">Team Name </p>
+    <p class="author">Kayla Mac </p>
   </div>
     <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -4582,23 +4584,157 @@ vertical-align: -.125em;
 
 </header>
 
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <section id="dataset" class="level2">
 <h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
-<p>A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.</p>
-<p>Make sure to load the data and use inline code for some of this information.</p>
+<p>Data set: Australian frogs</p>
+<p>This data set contains 2023 data from the app, FrogID. FrogID is an Australian app that allows people to submit frog calls and museum experts can identify the type of frog. Along with the FrogID data, there is an additional table that includes their names.</p>
+<p>The frogID dataset contains 11 columns by 136621 rows. The dataset contains the following information:</p>
+<ul>
+<li><p><code>occurrenceID</code></p></li>
+<li><p><code>eventID</code></p></li>
+<li><p><code>decimalLatitude</code></p></li>
+<li><p><code>decimalLongitude</code></p></li>
+<li><p><code>scientificName</code></p></li>
+<li><p><code>eventDate</code></p></li>
+<li><p><code>eventTime</code></p></li>
+<li><p><code>timeZone</code></p></li>
+<li><p><code>coordinateUncertaintyInMeters</code></p></li>
+<li><p><code>recordedBy</code></p></li>
+<li><p><code>stateProvince</code></p></li>
+</ul>
+<p>The frog names dataset contains 5 columns and 294 rows. The dataset contains the following information:</p>
+<ul>
+<li><p><code>subfamily</code></p></li>
+<li><p><code>tribe</code></p></li>
+<li><p><code>scientificName</code></p></li>
+<li><p><code>commonName</code></p></li>
+<li><p><code>secondary_commonNames</code></p></li>
+</ul>
+</section>
+<section id="motivation" class="level2">
+<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<p>I majored in biology in undergraduate and really enjoyed the ecology electives I took. Additionally, I love watching nature and animal documentaries so choosing a frog data set seemed fitting and peaked my interest.</p>
+</section>
+<section id="motivation-1" class="level2">
+<h2 class="anchored" data-anchor-id="motivation-1">Motivation</h2>
+<p>I majored in biology in undergraduate and really enjoyed the ecology electives I took. Additionally, I love watching nature and animal documentaries so choosing a frog data set seemed fitting and peaked my interest.</p>
 </section>
 <section id="questions" class="level2">
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<p>The two questions you want to answer.</p>
+<ol type="1">
+<li>What is the spatiotemporal distribution of Australian frog occurrences, and how does call frequency change across seasons?</li>
+<li>Do geographic hotspots with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?</li>
+</ol>
 </section>
 <section id="analysis-plan" class="level2">
 <h2 class="anchored" data-anchor-id="analysis-plan">Analysis plan</h2>
+<p><strong>Question 1:</strong> What is the spatiotemporal distribution of Australian frog occurrences, and how does call frequency change across seasons?</p>
 <ul>
-<li>A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).</li>
+<li><p>Due to Australia being in the southern hemisphere, their months for seasons are not the same as North America – Use <code>eventDate</code> to determine month and then season.</p>
+<ul>
+<li><p>Fall: March, April, May</p></li>
+<li><p>Winter: June, July, August</p></li>
+<li><p>Spring: September, October, November</p></li>
+<li><p>Summer: December, January, February</p></li>
+</ul></li>
+<li><p>Make a map of Australia</p>
+<ul>
+<li><p>Use <code>decimalLatitude</code> and <code>decimalLongitude</code> variables to plot where each of these calls are taking place in Australia. Additionally, map out the provinces using the <code>stateProvince</code> variable.</p>
+<ul>
+<li><p>Map the provinces</p></li>
+<li><p>Make four different plots for each season – in each plot is a map of Australia and its provinces with the density of frog occurrences perhaps using a heat map.</p></li>
+</ul></li>
+</ul></li>
 </ul>
+<p><strong>Question 2:</strong> Do geographic areas with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?</p>
+<ul>
+<li>Based off the previous data, we will be able to determine geographically where the most frog occurrences.</li>
+<li>Determine what is considered the equatorial, tropical, subtropical, desert, grassland, temperate.
+<ul>
+<li>Make a visual of Australia defined by the different geographical regions equatorial, tropical, subtropical, desert, grassland, temperate.</li>
+<li>Find a map online with regions and map it to preexisting map of Australia.
+<ul>
+<li>https://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=koppen_major_AGCDv2_&amp;period=1991-2020</li>
+</ul></li>
+</ul></li>
+<li>To determine taxonomic diversity, use the subfamily or tribe – see which one is better.
+<ul>
+<li><p>Plot the number of different subfamilies/tribes per geographical region.</p></li>
+<li><p>Bar chart:</p>
+<ul>
+<li>x-axis: region</li>
+<li>y-axis: number of different subfamilies</li>
+</ul></li>
+<li><h1 id="graph-another-plot-that-is-the-bar-chart-but-stacked-with-the-different-subfamilies.">Graph another plot that is the bar chart but stacked with the different subfamilies.</h1>
+<pre><code>-   Try to map the provinces
+
+-   Make four different plots for each season -- in each plot is a map of Australia and its provinces with the density of frog occurrences perhaps using a heat map</code></pre></li>
+</ul></li>
+<li>Do geographic areas with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?
+<ul>
+<li>Based off the previous data, we will be able to determine geographically where the most frog occurrences.</li>
+<li>Would have to be able to determine what is considered the equatorial, tropical, subtropical, desert, grassland, temperate
+<ul>
+<li>Make a visual of Australia defined by the different geographical regions equatorial, tropical, subtropical, desert, grassland, temperate.</li>
+<li>Should be able to find a map online with regions and be able to map it</li>
+<li>https://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=koppen_major_AGCDv2_&amp;period=1991-2020</li>
+</ul></li>
+<li>To determine taxonomic diversity, use the subfamily or tribe – see which one is better.
+<ul>
+<li>Figure out how to plot the number of different subfamilies/tribes per geographical region</li>
+<li>Bar chart:
+<ul>
+<li>x-axis: region</li>
+<li>y-axis: number of different subfamilies</li>
+</ul></li>
+<li>Maybe another plot that is the bar chart but stacked with the different subfamilies</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="weekly-project-plan-table" class="level2">
+<h2 class="anchored" data-anchor-id="weekly-project-plan-table">Weekly project plan table</h2>
+<table class="table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Task Name</strong></th>
+<th><strong>Status</strong></th>
+<th><strong>Due</strong></th>
+<th><strong>Priority</strong></th>
+<th><strong>Summary</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Peer review</td>
+<td>In progress</td>
+<td>6/12/26</td>
+<td>High</td>
+<td>Reach out to peer reviewers</td>
+</tr>
+<tr class="even">
+<td>Make adjustments after peer reviews</td>
+<td>Incomplete</td>
+<td>6/12/26</td>
+<td>Moderate</td>
+<td>Adjust after peer review deadline</td>
+</tr>
+<tr class="odd">
+<td>Data wrangling</td>
+<td>Incomplete</td>
+<td>6/14/26</td>
+<td>High</td>
+<td>Need to make new variables for seasons</td>
+</tr>
+</tbody>
+</table>
 
 
 <!-- -->
@@ -5071,13 +5207,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
 <div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="an">title:</span><span class="co"> &quot;Proposal title&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="an">title:</span><span class="co"> &quot;Analysis of FrogID Data&quot;</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="an">subtitle:</span><span class="co"> &quot;Proposal&quot;</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">  - name: &quot;Team Name&quot;</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">  - name: &quot;Kayla Mac&quot;</span></span>
 <span id="cb2-6"><a href="#cb2-6"></a><span class="co">    affiliations:</span></span>
 <span id="cb2-7"><a href="#cb2-7"></a><span class="co">      - name: &quot;School of Information, University of Arizona&quot;</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="an">description:</span><span class="co"> &quot;Project description&quot;</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="an">description:</span><span class="co"> &quot;Using data from an Australian application, FrogID, two questions will be answered: how does frog call frequency across seasons and how does taxonomic diversity differ across Australia.&quot;</span></span>
 <span id="cb2-9"><a href="#cb2-9"></a><span class="an">format:</span></span>
 <span id="cb2-10"><a href="#cb2-10"></a><span class="co">  html:</span></span>
 <span id="cb2-11"><a href="#cb2-11"></a><span class="co">    code-tools: true</span></span>
@@ -5088,32 +5224,147 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-16"><a href="#cb2-16"></a><span class="an">code-annotations:</span><span class="co"> hover</span></span>
 <span id="cb2-17"><a href="#cb2-17"></a><span class="an">execute:</span></span>
 <span id="cb2-18"><a href="#cb2-18"></a><span class="co">  warning: false</span></span>
-<span id="cb2-19"><a href="#cb2-19"></a><span class="co">---</span></span>
-<span id="cb2-20"><a href="#cb2-20"></a></span>
-<span id="cb2-23"><a href="#cb2-23"></a><span class="in">```{r}</span></span>
-<span id="cb2-24"><a href="#cb2-24"></a><span class="co">#| label: load-pkgs</span></span>
-<span id="cb2-25"><a href="#cb2-25"></a><span class="co">#| message: false</span></span>
-<span id="cb2-26"><a href="#cb2-26"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-27"><a href="#cb2-27"></a><span class="in">```</span></span>
-<span id="cb2-28"><a href="#cb2-28"></a></span>
-<span id="cb2-29"><a href="#cb2-29"></a><span class="fu">## Dataset</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="co">  echo: false</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="co">  message: false</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a><span class="co">---</span></span>
+<span id="cb2-22"><a href="#cb2-22"></a></span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="in">```{r}</span></span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="co">#| label: load-pkgs</span></span>
+<span id="cb2-27"><a href="#cb2-27"></a><span class="co">#| message: false</span></span>
+<span id="cb2-28"><a href="#cb2-28"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-29"><a href="#cb2-29"></a><span class="in">```</span></span>
 <span id="cb2-30"><a href="#cb2-30"></a></span>
-<span id="cb2-33"><a href="#cb2-33"></a><span class="in">```{r}</span></span>
-<span id="cb2-34"><a href="#cb2-34"></a><span class="co">#| label: load-dataset</span></span>
-<span id="cb2-35"><a href="#cb2-35"></a><span class="co">#| message: false</span></span>
-<span id="cb2-36"><a href="#cb2-36"></a><span class="in">```</span></span>
-<span id="cb2-37"><a href="#cb2-37"></a></span>
-<span id="cb2-38"><a href="#cb2-38"></a>A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.</span>
-<span id="cb2-39"><a href="#cb2-39"></a></span>
-<span id="cb2-40"><a href="#cb2-40"></a>Make sure to load the data and use inline code for some of this information.</span>
-<span id="cb2-41"><a href="#cb2-41"></a></span>
-<span id="cb2-42"><a href="#cb2-42"></a><span class="fu">## Questions</span></span>
-<span id="cb2-43"><a href="#cb2-43"></a></span>
-<span id="cb2-44"><a href="#cb2-44"></a>The two questions you want to answer.</span>
-<span id="cb2-45"><a href="#cb2-45"></a></span>
-<span id="cb2-46"><a href="#cb2-46"></a><span class="fu">## Analysis plan</span></span>
-<span id="cb2-47"><a href="#cb2-47"></a></span>
-<span id="cb2-48"><a href="#cb2-48"></a><span class="ss">-   </span>A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).</span>
+<span id="cb2-31"><a href="#cb2-31"></a><span class="fu">## Dataset</span></span>
+<span id="cb2-32"><a href="#cb2-32"></a></span>
+<span id="cb2-35"><a href="#cb2-35"></a><span class="in">```{r}</span></span>
+<span id="cb2-36"><a href="#cb2-36"></a><span class="co">#| label: load-dataset</span></span>
+<span id="cb2-37"><a href="#cb2-37"></a><span class="co">#| message: false</span></span>
+<span id="cb2-38"><a href="#cb2-38"></a><span class="co"># FrogID data</span></span>
+<span id="cb2-39"><a href="#cb2-39"></a>frogID_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-09-02/frogID_data.csv&#39;</span>)</span>
+<span id="cb2-40"><a href="#cb2-40"></a></span>
+<span id="cb2-41"><a href="#cb2-41"></a><span class="co"># Frog name data</span></span>
+<span id="cb2-42"><a href="#cb2-42"></a>frog_names <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-09-02/frog_names.csv&#39;</span>)</span>
+<span id="cb2-43"><a href="#cb2-43"></a><span class="in">```</span></span>
+<span id="cb2-44"><a href="#cb2-44"></a></span>
+<span id="cb2-45"><a href="#cb2-45"></a>Data set: Australian frogs</span>
+<span id="cb2-46"><a href="#cb2-46"></a></span>
+<span id="cb2-47"><a href="#cb2-47"></a>This data set contains 2023 data from the app, FrogID. FrogID is an Australian app that allows people to submit frog calls and museum experts can identify the type of frog. Along with the FrogID data, there is an additional table that includes their names.</span>
+<span id="cb2-48"><a href="#cb2-48"></a></span>
+<span id="cb2-49"><a href="#cb2-49"></a>The frogID dataset contains <span class="in">`r ncol(frogID_data)`</span> columns by <span class="in">`r nrow(frogID_data)`</span> rows. The dataset contains the following information:</span>
+<span id="cb2-50"><a href="#cb2-50"></a></span>
+<span id="cb2-51"><a href="#cb2-51"></a><span class="ss">-   </span><span class="in">`occurrenceID`</span></span>
+<span id="cb2-52"><a href="#cb2-52"></a></span>
+<span id="cb2-53"><a href="#cb2-53"></a><span class="ss">-   </span><span class="in">`eventID`</span></span>
+<span id="cb2-54"><a href="#cb2-54"></a></span>
+<span id="cb2-55"><a href="#cb2-55"></a><span class="ss">-   </span><span class="in">`decimalLatitude`</span></span>
+<span id="cb2-56"><a href="#cb2-56"></a></span>
+<span id="cb2-57"><a href="#cb2-57"></a><span class="ss">-   </span><span class="in">`decimalLongitude`</span></span>
+<span id="cb2-58"><a href="#cb2-58"></a></span>
+<span id="cb2-59"><a href="#cb2-59"></a><span class="ss">-   </span><span class="in">`scientificName`</span></span>
+<span id="cb2-60"><a href="#cb2-60"></a></span>
+<span id="cb2-61"><a href="#cb2-61"></a><span class="ss">-   </span><span class="in">`eventDate`</span></span>
+<span id="cb2-62"><a href="#cb2-62"></a></span>
+<span id="cb2-63"><a href="#cb2-63"></a><span class="ss">-   </span><span class="in">`eventTime`</span></span>
+<span id="cb2-64"><a href="#cb2-64"></a></span>
+<span id="cb2-65"><a href="#cb2-65"></a><span class="ss">-   </span><span class="in">`timeZone`</span></span>
+<span id="cb2-66"><a href="#cb2-66"></a></span>
+<span id="cb2-67"><a href="#cb2-67"></a><span class="ss">-   </span><span class="in">`coordinateUncertaintyInMeters`</span></span>
+<span id="cb2-68"><a href="#cb2-68"></a></span>
+<span id="cb2-69"><a href="#cb2-69"></a><span class="ss">-   </span><span class="in">`recordedBy`</span></span>
+<span id="cb2-70"><a href="#cb2-70"></a></span>
+<span id="cb2-71"><a href="#cb2-71"></a><span class="ss">-   </span><span class="in">`stateProvince`</span></span>
+<span id="cb2-72"><a href="#cb2-72"></a></span>
+<span id="cb2-73"><a href="#cb2-73"></a>The frog names dataset contains <span class="in">`r ncol(frog_names)`</span> columns and <span class="in">`r nrow(frog_names)`</span> rows. The dataset contains the following information:</span>
+<span id="cb2-74"><a href="#cb2-74"></a></span>
+<span id="cb2-75"><a href="#cb2-75"></a><span class="ss">-   </span><span class="in">`subfamily`</span></span>
+<span id="cb2-76"><a href="#cb2-76"></a></span>
+<span id="cb2-77"><a href="#cb2-77"></a><span class="ss">-   </span><span class="in">`tribe`</span></span>
+<span id="cb2-78"><a href="#cb2-78"></a></span>
+<span id="cb2-79"><a href="#cb2-79"></a><span class="ss">-   </span><span class="in">`scientificName`</span></span>
+<span id="cb2-80"><a href="#cb2-80"></a></span>
+<span id="cb2-81"><a href="#cb2-81"></a><span class="ss">-   </span><span class="in">`commonName`</span></span>
+<span id="cb2-82"><a href="#cb2-82"></a></span>
+<span id="cb2-83"><a href="#cb2-83"></a><span class="ss">-   </span><span class="in">`secondary_commonNames`</span></span>
+<span id="cb2-84"><a href="#cb2-84"></a></span>
+<span id="cb2-85"><a href="#cb2-85"></a><span class="fu">## Motivation</span></span>
+<span id="cb2-86"><a href="#cb2-86"></a></span>
+<span id="cb2-87"><a href="#cb2-87"></a>I majored in biology in undergraduate and really enjoyed the ecology electives I took. Additionally, I love watching nature and animal documentaries so choosing a frog data set seemed fitting and peaked my interest.</span>
+<span id="cb2-88"><a href="#cb2-88"></a></span>
+<span id="cb2-89"><a href="#cb2-89"></a><span class="fu">## Motivation</span></span>
+<span id="cb2-90"><a href="#cb2-90"></a></span>
+<span id="cb2-91"><a href="#cb2-91"></a>I majored in biology in undergraduate and really enjoyed the ecology electives I took. Additionally, I love watching nature and animal documentaries so choosing a frog data set seemed fitting and peaked my interest.</span>
+<span id="cb2-92"><a href="#cb2-92"></a></span>
+<span id="cb2-93"><a href="#cb2-93"></a><span class="fu">## Questions</span></span>
+<span id="cb2-94"><a href="#cb2-94"></a></span>
+<span id="cb2-95"><a href="#cb2-95"></a><span class="ss">1.  </span>What is the spatiotemporal distribution of Australian frog occurrences, and how does call frequency change across seasons?</span>
+<span id="cb2-96"><a href="#cb2-96"></a><span class="ss">2.  </span>Do geographic hotspots with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?</span>
+<span id="cb2-97"><a href="#cb2-97"></a></span>
+<span id="cb2-98"><a href="#cb2-98"></a><span class="fu">## Analysis plan</span></span>
+<span id="cb2-99"><a href="#cb2-99"></a></span>
+<span id="cb2-100"><a href="#cb2-100"></a>**Question 1:** What is the spatiotemporal distribution of Australian frog occurrences, and how does call frequency change across seasons?</span>
+<span id="cb2-101"><a href="#cb2-101"></a></span>
+<span id="cb2-102"><a href="#cb2-102"></a><span class="ss">-   </span>Due to Australia being in the southern hemisphere, their months for seasons are not the same as North America -- Use <span class="in">`eventDate`</span> to determine month and then season.</span>
+<span id="cb2-103"><a href="#cb2-103"></a></span>
+<span id="cb2-104"><a href="#cb2-104"></a><span class="ss">    -   </span>Fall: March, April, May</span>
+<span id="cb2-105"><a href="#cb2-105"></a></span>
+<span id="cb2-106"><a href="#cb2-106"></a><span class="ss">    -   </span>Winter: June, July, August</span>
+<span id="cb2-107"><a href="#cb2-107"></a></span>
+<span id="cb2-108"><a href="#cb2-108"></a><span class="ss">    -   </span>Spring: September, October, November</span>
+<span id="cb2-109"><a href="#cb2-109"></a></span>
+<span id="cb2-110"><a href="#cb2-110"></a><span class="ss">    -   </span>Summer: December, January, February</span>
+<span id="cb2-111"><a href="#cb2-111"></a></span>
+<span id="cb2-112"><a href="#cb2-112"></a><span class="ss">-   </span>Make a map of Australia</span>
+<span id="cb2-113"><a href="#cb2-113"></a></span>
+<span id="cb2-114"><a href="#cb2-114"></a><span class="ss">    -   </span>Use <span class="in">`decimalLatitude`</span> and <span class="in">`decimalLongitude`</span> variables to plot where each of these calls are taking place in Australia. Additionally, map out the provinces using the <span class="in">`stateProvince`</span> variable.</span>
+<span id="cb2-115"><a href="#cb2-115"></a></span>
+<span id="cb2-116"><a href="#cb2-116"></a><span class="ss">        -   </span>Map the provinces</span>
+<span id="cb2-117"><a href="#cb2-117"></a></span>
+<span id="cb2-118"><a href="#cb2-118"></a><span class="ss">        -   </span>Make four different plots for each season -- in each plot is a map of Australia and its provinces with the density of frog occurrences perhaps using a heat map.</span>
+<span id="cb2-119"><a href="#cb2-119"></a></span>
+<span id="cb2-120"><a href="#cb2-120"></a>**Question 2:** Do geographic areas with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?</span>
+<span id="cb2-121"><a href="#cb2-121"></a></span>
+<span id="cb2-122"><a href="#cb2-122"></a><span class="ss">-   </span>Based off the previous data, we will be able to determine geographically where the most frog occurrences.</span>
+<span id="cb2-123"><a href="#cb2-123"></a><span class="ss">-   </span>Determine what is considered the equatorial, tropical, subtropical, desert, grassland, temperate.</span>
+<span id="cb2-124"><a href="#cb2-124"></a><span class="ss">    -   </span>Make a visual of Australia defined by the different geographical regions equatorial, tropical, subtropical, desert, grassland, temperate.</span>
+<span id="cb2-125"><a href="#cb2-125"></a><span class="ss">    -   </span>Find a map online with regions and map it to preexisting map of Australia.</span>
+<span id="cb2-126"><a href="#cb2-126"></a><span class="ss">        -   </span>https://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=koppen_major_AGCDv2\_&amp;period=1991-2020</span>
+<span id="cb2-127"><a href="#cb2-127"></a><span class="ss">-   </span>To determine taxonomic diversity, use the subfamily or tribe -- see which one is better.</span>
+<span id="cb2-128"><a href="#cb2-128"></a><span class="ss">    -   </span>Plot the number of different subfamilies/tribes per geographical region.</span>
+<span id="cb2-129"><a href="#cb2-129"></a></span>
+<span id="cb2-130"><a href="#cb2-130"></a><span class="ss">    -   </span>Bar chart:</span>
+<span id="cb2-131"><a href="#cb2-131"></a></span>
+<span id="cb2-132"><a href="#cb2-132"></a><span class="ss">        -   </span>x-axis: region</span>
+<span id="cb2-133"><a href="#cb2-133"></a><span class="ss">        -   </span>y-axis: number of different subfamilies</span>
+<span id="cb2-134"><a href="#cb2-134"></a></span>
+<span id="cb2-135"><a href="#cb2-135"></a><span class="ss">    -   </span></span>
+<span id="cb2-136"><a href="#cb2-136"></a></span>
+<span id="cb2-137"><a href="#cb2-137"></a>        # Graph another plot that is the bar chart but stacked with the different subfamilies.</span>
+<span id="cb2-138"><a href="#cb2-138"></a></span>
+<span id="cb2-139"><a href="#cb2-139"></a>        <span class="in">```         </span></span>
+<span id="cb2-140"><a href="#cb2-140"></a><span class="in">        -   Try to map the provinces</span></span>
+<span id="cb2-141"><a href="#cb2-141"></a></span>
+<span id="cb2-142"><a href="#cb2-142"></a><span class="in">        -   Make four different plots for each season -- in each plot is a map of Australia and its provinces with the density of frog occurrences perhaps using a heat map</span></span>
+<span id="cb2-143"><a href="#cb2-143"></a><span class="in">        ```</span></span>
+<span id="cb2-144"><a href="#cb2-144"></a><span class="ss">-   </span>Do geographic areas with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?</span>
+<span id="cb2-145"><a href="#cb2-145"></a><span class="ss">    -   </span>Based off the previous data, we will be able to determine geographically where the most frog occurrences.</span>
+<span id="cb2-146"><a href="#cb2-146"></a><span class="ss">    -   </span>Would have to be able to determine what is considered the equatorial, tropical, subtropical, desert, grassland, temperate</span>
+<span id="cb2-147"><a href="#cb2-147"></a><span class="ss">        -   </span>Make a visual of Australia defined by the different geographical regions equatorial, tropical, subtropical, desert, grassland, temperate.</span>
+<span id="cb2-148"><a href="#cb2-148"></a><span class="ss">        -   </span>Should be able to find a map online with regions and be able to map it</span>
+<span id="cb2-149"><a href="#cb2-149"></a><span class="ss">        -   </span>https://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=koppen_major_AGCDv2\_&amp;period=1991-2020</span>
+<span id="cb2-150"><a href="#cb2-150"></a><span class="ss">    -   </span>To determine taxonomic diversity, use the subfamily or tribe -- see which one is better.</span>
+<span id="cb2-151"><a href="#cb2-151"></a><span class="ss">        -   </span>Figure out how to plot the number of different subfamilies/tribes per geographical region</span>
+<span id="cb2-152"><a href="#cb2-152"></a><span class="ss">        -   </span>Bar chart:</span>
+<span id="cb2-153"><a href="#cb2-153"></a><span class="ss">            -   </span>x-axis: region</span>
+<span id="cb2-154"><a href="#cb2-154"></a><span class="ss">            -   </span>y-axis: number of different subfamilies</span>
+<span id="cb2-155"><a href="#cb2-155"></a><span class="ss">        -   </span>Maybe another plot that is the bar chart but stacked with the different subfamilies</span>
+<span id="cb2-156"><a href="#cb2-156"></a></span>
+<span id="cb2-157"><a href="#cb2-157"></a><span class="fu">## Weekly project plan table</span></span>
+<span id="cb2-158"><a href="#cb2-158"></a></span>
+<span id="cb2-159"><a href="#cb2-159"></a>| **Task Name**                       | **Status**  | **Due** | **Priority** | **Summary**                            |</span>
+<span id="cb2-160"><a href="#cb2-160"></a>|-----------------|------------|------------|------------|-------------------|</span>
+<span id="cb2-161"><a href="#cb2-161"></a>| Peer review                         | In progress | 6/12/26 | High         | Reach out to peer reviewers            |</span>
+<span id="cb2-162"><a href="#cb2-162"></a>| Make adjustments after peer reviews | Incomplete  | 6/12/26 | Moderate     | Adjust after peer review deadline      |</span>
+<span id="cb2-163"><a href="#cb2-163"></a>| Data wrangling                      | Incomplete  | 6/14/26 | High         | Need to make new variables for seasons |</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
