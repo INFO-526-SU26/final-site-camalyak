@@ -122,21 +122,12 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
         -   https://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=koppen_major_AGCDv2\_&period=1991-2020
 -   To determine taxonomic diversity, use the subfamily or tribe -- see which one is better.
     -   Plot the number of different subfamilies/tribes per geographical region.
-
     -   Bar chart:
-
         -   x-axis: region
         -   y-axis: number of different subfamilies
-
-    -   
-
-        # Graph another plot that is the bar chart but stacked with the different subfamilies.
-
-        ```         
+    -   Graph another plot that is the bar chart but stacked with the different subfamilies.
         -   Try to map the provinces
-
-        -   Make four different plots for each season -- in each plot is a map of Australia and its provinces with the density of frog occurrences perhaps using a heat map
-        ```
+        -   Make four different plots for each season \-- in each plot is a map of Australia and its provinces with the density of frog occurrences perhaps using a heat map
 -   Do geographic areas with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?
     -   Based off the previous data, we will be able to determine geographically where the most frog occurrences.
     -   Would have to be able to determine what is considered the equatorial, tropical, subtropical, desert, grassland, temperate
