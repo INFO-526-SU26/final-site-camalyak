@@ -42,7 +42,13 @@ Data set: Australian frogs
 
 This data set contains 2023 data from the app, FrogID. FrogID is an Australian app that allows people to submit frog calls and museum experts can identify the type of frog. Along with the FrogID data, there is an additional table that includes their names.
 
+The frogID dataset contains 11 columns by 136621 rows.
+
 **Make sure to load the data and use inline code for some of this information.**
+
+## Motivation
+
+I majored in biology in undergraduate and really enjoyed the ecology electives I took. Additionally, I love watching nature and animal documentaries so choosing a frog data set seemed fitting and peaked my interest.
 
 ## Questions
 
@@ -67,10 +73,10 @@ This data set contains 2023 data from the app, FrogID. FrogID is an Australian a
 
         -   "decimalLatitude" and "decimalLongitude" variables to plot where each of these calls are taking place in Australia. Additionally, map out the provinces using the "stateProvince" variable.
 
-            -   Try to map the provinces?
+            -   Try to map the provinces
 
-            -   Make four different plots for each season -- in each plot is a map of Australia and its provinces with the density of frog occurrences perhaps using a heat map?
--   Do geopgraphic areas with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?
+            -   Make four different plots for each season -- in each plot is a map of Australia and its provinces with the density of frog occurrences perhaps using a heat map
+-   Do geographic areas with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?
     -   Based off the previous data, we will be able to determine geographically where the most frog occurrences.
     -   Would have to be able to determine what is considered the equatorial, tropical, subtropical, desert, grassland, temperate
         -   Make a visual of Australia defined by the different geographical regions equatorial, tropical, subtropical, desert, grassland, temperate.
@@ -81,7 +87,7 @@ This data set contains 2023 data from the app, FrogID. FrogID is an Australian a
         -   Bar chart:
             -   x-axis: region
             -   y-axis: number of different subfamilies
-        -   Maybe another plot that is the bar chart but stacked with the different subfamilies?
+        -   Maybe another plot that is the bar chart but stacked with the different subfamilies
 
 ## Weekly project plan table
 
