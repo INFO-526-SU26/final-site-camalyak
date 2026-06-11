@@ -136,7 +136,7 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
 ## Weekly project plan table
 
 | **Task Name**                       | **Status**  | **Due** | **Priority** | **Summary**                            |
-|---------------|---------------|---------------|---------------|---------------|
+|-------------------------------------|-------------|---------|--------------|----------------------------------------|
 | Peer review                         | In progress | 6/12/26 | High         | Reach out to peer reviewers            |
 | Make adjustments after peer reviews | In progress | 6/12/26 | Moderate     | Waiting for 2nd peer review            |
 | Data wrangling                      | Incomplete  | 6/14/26 | High         | Need to make new variables for seasons |
