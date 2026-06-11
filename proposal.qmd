@@ -82,10 +82,6 @@ The frog names dataset contains `r ncol(frog_names)` columns and `r nrow(frog_na
 
 I majored in biology in undergraduate and really enjoyed the ecology electives I took. Additionally, I love watching nature and animal documentaries so choosing a frog data set seemed fitting and peaked my interest.
 
-## Motivation
-
-I majored in biology in undergraduate and really enjoyed the ecology electives I took. Additionally, I love watching nature and animal documentaries so choosing a frog data set seemed fitting and peaked my interest.
-
 ## Questions
 
 1.  What is the spatiotemporal distribution of Australian frog occurrences, and how does call frequency change across seasons?
