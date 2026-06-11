@@ -116,7 +116,7 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
     -   Make a visual of Australia defined by the different geographical regions equatorial, tropical, subtropical, desert, grassland, temperate.
     -   Find a map online with regions and map it to preexisting map of Australia.
         -   https://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=koppen_major_AGCDv2\_&period=1991-2020
--   To determine taxonomic diversity, use the subfamily or tribe -- see which one is better.
+-   To determine taxonomic diversity, use the `subfamily` or `tribe`. A tribe is part of a subfamily. A subfamily may be too broad for the frog species and not show the diversity. If that is so, I will use `tribe` to showcase the diversity.
     -   Plot the number of different subfamilies/tribes per geographical region.
     -   Bar chart:
         -   x-axis: region
@@ -140,7 +140,7 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
 ## Weekly project plan table
 
 | **Task Name**                       | **Status**  | **Due** | **Priority** | **Summary**                            |
-|-----------------|------------|------------|------------|-------------------|
+|---------------|---------------|---------------|---------------|---------------|
 | Peer review                         | In progress | 6/12/26 | High         | Reach out to peer reviewers            |
 | Make adjustments after peer reviews | Incomplete  | 6/12/26 | Moderate     | Adjust after peer review deadline      |
 | Data wrangling                      | Incomplete  | 6/14/26 | High         | Need to make new variables for seasons |
