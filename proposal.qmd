@@ -82,6 +82,10 @@ The frog names dataset contains `r ncol(frog_names)` columns and `r nrow(frog_na
 
 I majored in biology in undergraduate and really enjoyed the ecology electives I took. Additionally, I love watching nature and animal documentaries so choosing a frog data set seemed fitting and peaked my interest.
 
+## Motivation
+
+I majored in biology in undergraduate and really enjoyed the ecology electives I took. Additionally, I love watching nature and animal documentaries so choosing a frog data set seemed fitting and peaked my interest.
+
 ## Questions
 
 1.  What is the spatiotemporal distribution of Australian frog occurrences, and how does call frequency change across seasons?
@@ -118,15 +122,38 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
         -   https://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=koppen_major_AGCDv2\_&period=1991-2020
 -   To determine taxonomic diversity, use the subfamily or tribe -- see which one is better.
     -   Plot the number of different subfamilies/tribes per geographical region.
+
     -   Bar chart:
+
         -   x-axis: region
         -   y-axis: number of different subfamilies
-    -   Graph another plot that is the bar chart but stacked with the different subfamilies.
+
+    -   
+
+        # Graph another plot that is the bar chart but stacked with the different subfamilies.
+
+        ```         
+        -   Try to map the provinces
+
+        -   Make four different plots for each season -- in each plot is a map of Australia and its provinces with the density of frog occurrences perhaps using a heat map
+        ```
+-   Do geographic areas with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?
+    -   Based off the previous data, we will be able to determine geographically where the most frog occurrences.
+    -   Would have to be able to determine what is considered the equatorial, tropical, subtropical, desert, grassland, temperate
+        -   Make a visual of Australia defined by the different geographical regions equatorial, tropical, subtropical, desert, grassland, temperate.
+        -   Should be able to find a map online with regions and be able to map it
+        -   https://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=koppen_major_AGCDv2\_&period=1991-2020
+    -   To determine taxonomic diversity, use the subfamily or tribe -- see which one is better.
+        -   Figure out how to plot the number of different subfamilies/tribes per geographical region
+        -   Bar chart:
+            -   x-axis: region
+            -   y-axis: number of different subfamilies
+        -   Maybe another plot that is the bar chart but stacked with the different subfamilies
 
 ## Weekly project plan table
 
 | **Task Name**                       | **Status**  | **Due** | **Priority** | **Summary**                            |
-|-------------------------------------|-------------|---------|--------------|----------------------------------------|
+|-----------------|------------|------------|------------|-------------------|
 | Peer review                         | In progress | 6/12/26 | High         | Reach out to peer reviewers            |
 | Make adjustments after peer reviews | Incomplete  | 6/12/26 | Moderate     | Adjust after peer review deadline      |
 | Data wrangling                      | Incomplete  | 6/14/26 | High         | Need to make new variables for seasons |
