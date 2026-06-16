@@ -123,5 +123,5 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
 |---------------|---------------|---------------|---------------|---------------|
 | Peer review                         | Complete    | 6/12/26 | High         | Reach out to peer reviewers            |
 | Make adjustments after peer reviews | Complete    | 6/12/26 | Moderate     | Waiting for 2nd peer review            |
-| Data wrangling                      | Incomplete  | 6/17/26 | High         | Need to make new variables for seasons |
+| Data wrangling                      | In progress | 6/17/26 | High         | Need to make new variables for seasons |
 | Explore Ozmaps                      | In progress | 6/17/26 | Moderate     | See what the Ozmaps package includes   |
