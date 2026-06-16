@@ -44,39 +44,11 @@ This data set contains 2023 data from the app, FrogID. FrogID is an Australian a
 
 The frogID dataset contains `r ncol(frogID_data)` columns by `r nrow(frogID_data)` rows. The dataset contains the following information:
 
--   `occurrenceID`
-
--   `eventID`
-
--   `decimalLatitude`
-
--   `decimalLongitude`
-
--   `scientificName`
-
--   `eventDate`
-
--   `eventTime`
-
--   `timeZone`
-
--   `coordinateUncertaintyInMeters`
-
--   `recordedBy`
-
--   `stateProvince`
+-   `occurenceID`, `eventID`, `decimalLatitude`, `decimalLongitude`, `scientificName`, `eventDate`, `eventTime`, `timeZone`, `coordinateUncertaintyInMeters`, `recordedBy`, `stateProvince`
 
 The frog names dataset contains `r ncol(frog_names)` columns and `r nrow(frog_names)` rows. The dataset contains the following information:
 
--   `subfamily`
-
--   `tribe`
-
--   `scientificName`
-
--   `commonName`
-
--   `secondary_commonNames`
+-   `subfamily`, `tribe`, `scientificName`, `commonName`, `secondary_commonNames`
 
 ## Motivation
 
@@ -91,6 +63,13 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
 
 **Question 1:** What is the spatiotemporal distribution of Australian frog occurrences, and how does call frequency change across seasons?
 
+-   **Spatiotemporal:** in relation to both space and time
+
+    -   For example, how does Australian frog occurrences change with season (time) and location in Australia (space).
+
+```{=html}
+<!-- -->
+```
 -   Due to Australia being in the southern hemisphere, their months for seasons are not the same as North America -- Use `eventDate` to determine month and then season.
 
     -   Fall: March, April, May
@@ -119,6 +98,11 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
 
 **Question 2:** Do geographic areas with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?
 
+-   **Taxonomy:** classification of organisms --- different species will determine diversity.
+
+```{=html}
+<!-- -->
+```
 -   Based off the previous data, we will be able to determine geographically where the most frog occurrences.
 -   Determine what is considered the equatorial, tropical, subtropical, desert, grassland, temperate.
 -   To determine taxonomic diversity, use the `subfamily` or `tribe`. A tribe is part of a subfamily. A subfamily may be too broad for the frog species and not show the true diversity. If that is so, I will use `tribe` to showcase the diversity.
@@ -136,7 +120,8 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
 ## Weekly project plan table
 
 | **Task Name**                       | **Status**  | **Due** | **Priority** | **Summary**                            |
-|-------------------------------------|-------------|---------|--------------|----------------------------------------|
-| Peer review                         | In progress | 6/12/26 | High         | Reach out to peer reviewers            |
-| Make adjustments after peer reviews | In progress | 6/12/26 | Moderate     | Waiting for 2nd peer review            |
-| Data wrangling                      | Incomplete  | 6/14/26 | High         | Need to make new variables for seasons |
+|---------------|---------------|---------------|---------------|---------------|
+| Peer review                         | Complete    | 6/12/26 | High         | Reach out to peer reviewers            |
+| Make adjustments after peer reviews | Complete    | 6/12/26 | Moderate     | Waiting for 2nd peer review            |
+| Data wrangling                      | Incomplete  | 6/17/26 | High         | Need to make new variables for seasons |
+| Explore Ozmaps                      | In progress | 6/17/26 | Moderate     | See what the Ozmaps package includes   |
