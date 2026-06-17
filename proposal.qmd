@@ -110,9 +110,9 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
     -   Variables used: `subfamily`, `tribe`, `decimalLatitude`, `decimalLongitude`
     -   Variables need to create: `geo_region`
     -   External data:
-        -   https://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=koppen_major_AGCDv2\_&period=1991-2020
-        -   https://github.com/mdsumner/ozmaps/
-    -   Join the geographical regions by location to the frogID data frame.
+        -   Australian Bureau of Meteorology (grographic areas): [Australian Bureau of Meteorology](https://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=koppen_major_AGCDv2_&period=1991-2020)
+        -   Austalian provinces/states: [Ozmaps](https://github.com/mdsumner/ozmaps/)
+    -   Join the geographical regions by location to the frogID data frame using the external data from package `Ozmaps` and the climate classification by the Australian Bureau of Meteorology.
     -   Approach: Make a map of Australia defined by the different geographical regions equatorial, tropical, subtropical, desert, grassland, temperate. Create a bar chart for the number of species per geographical region (x-axis: region; y-axis: number of different subfamilies/tribes).
 
 ## Weekly project plan table
