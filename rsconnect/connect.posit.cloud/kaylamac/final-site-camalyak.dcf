@@ -1,0 +1,10 @@
+name: final-site-camalyak
+title:
+username: kaylamac
+account: kaylamac
+server: connect.posit.cloud
+hostUrl: https://api.connect.posit.cloud/v1
+appId: 019ed40e-ca9d-1229-5877-9cdf667c1bfd
+bundleId:
+url: https://connect.posit.cloud/kaylamac/content/019ed40e-ca9d-1229-5877-9cdf667c1bfd
+version: 1
