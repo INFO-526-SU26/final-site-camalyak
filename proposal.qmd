@@ -81,11 +81,11 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
 
 -   Make a map of Australia
 
-    -   Use `decimalLatitude` and `decimalLongitude` variables to plot where each of these calls are taking place in Australia. Additionally, map out the provinces using the `stateProvince` variable.
+    -   Use `decimalLatitude` and `decimalLongitude` variables to plot where each of these calls are taking place in Australia. Additionally, map out the states using the `stateProvince` variable.
 
-        -   Map the provinces
+        -   Map the states
 
-        -   Make four different plots for each season -- in each plot is a map of Australia and its provinces with the density of frog occurrences perhaps using a heat map.
+        -   Make four different plots for each season -- in each plot is a map of Australia and its states with the density of frog occurrences perhaps using a heat map.
 
 -   Data wrangling:
 
@@ -93,7 +93,7 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
 
     -   Variables need to create: `season`
 
-    -   Approach: using the month in `eventDate`, assign the correct season. Using the package `ozmaps`, I can assign the Australian provinces and then plot where the frog calls are occurring.
+    -   Approach: using the month in `eventDate`, assign the correct season. Using the package `ozmaps`, I can assign the Australian states and then plot where the frog calls are occurring.
 
 **Question 2:** Do geographic areas with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?
 
@@ -111,15 +111,20 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
     -   Variables need to create: `geo_region`
     -   External data:
         -   Australian Bureau of Meteorology (grographic areas): [Australian Bureau of Meteorology](https://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=koppen_major_AGCDv2_&period=1991-2020)
-        -   Austalian provinces/states: [Ozmaps](https://github.com/mdsumner/ozmaps/)
+        -   Austalian states: [Ozmaps](https://github.com/mdsumner/ozmaps/)
     -   Join the geographical regions by location to the frogID data frame using the external data from package `Ozmaps` and the climate classification by the Australian Bureau of Meteorology.
     -   Approach: Make a map of Australia defined by the different geographical regions equatorial, tropical, subtropical, desert, grassland, temperate. Create a bar chart for the number of species per geographical region (x-axis: region; y-axis: number of different subfamilies/tribes).
 
 ## Weekly project plan table
 
 | **Task Name**                       | **Status**  | **Due** | **Priority** | **Summary**                            |
-|---------------|---------------|---------------|---------------|---------------|
+|-----------------|------------|------------|------------|-------------------|
 | Peer review                         | Complete    | 6/12/26 | High         | Reach out to peer reviewers            |
 | Make adjustments after peer reviews | Complete    | 6/12/26 | Moderate     | Waiting for 2nd peer review            |
-| Data wrangling                      | In progress | 6/17/26 | High         | Need to make new variables for seasons |
-| Explore Ozmaps                      | In progress | 6/17/26 | Moderate     | See what the Ozmaps package includes   |
+| Data wrangling                      | Complete    | 6/17/26 | High         | Need to make new variables for seasons |
+| Explore Ozmaps                      | Complete    | 6/17/26 | Moderate     | See what the Ozmaps package includes   |
+| Question 1                          | In progress | 6/28/26 | High         | Data wrangle and plots                 |
+| Question 2                          | Not started | 6/28/26 | High         | Data wrangle and plots                 |
+| Write-up                            | In progress | 7/3/26  | High         | Dataset overview & workflow            |
+| Presentation                        | In progress | 7/3/26  | High         | Slides and video presentaion           |
+| Final project due                   | In progress | 7/3/26  | High         | Upload to Github                       |

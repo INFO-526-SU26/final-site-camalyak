@@ -1,7 +1,7 @@
 ---
 title: "Project title"
-subtitle: "INFO 526 - Summer 2024 - Final Project"
-author: "Author names"
+subtitle: "INFO 526 - Summer 2026 - Final Project"
+author: "Kayla Mac"
 title-slide-attributes:
   data-background-image: images/watercolour_sys02_img34_teacup-ocean.jpg
   data-background-size: stretch
@@ -13,17 +13,23 @@ format:
   
 editor: visual
 execute:
+  warning: false
   echo: false
+  message: false
 ---
 
 ```{r}
 #| label: load-packages
 #| include: false
 
+#devtools::install_github("mdsumner/ozmaps")
+
 # Load packages here
 pacman::p_load(tidymodels,
-               tidyverse)
-
+               tidyverse,
+               sf,
+               ozmaps,
+               ggrepel)
 ```
 
 ```{r}
@@ -45,11 +51,12 @@ knitr::opts_chunk$set(
 ```{r}
 #| label: load-data
 #| include: false
-# Load data here
-data(mtcars)
-mtcars$speed <- mtcars$hp / mtcars$wt
 
-data("penguins")
+# FrogID data
+frogID_data <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-09-02/frogID_data.csv')
+
+# Frog name data
+frog_names <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-09-02/frog_names.csv')
 ```
 
 # Using Quarto for presentations
@@ -83,21 +90,84 @@ or in two columns
 ## Code
 
 ```{r, echo=FALSE}
-model <- lm(mpg ~ speed, data = mtcars) 
+oz_states <- ozmaps::ozmap_states
+```
 
-model |> tidy()
-
-model |> glance()
-
+```{r season wrangling}
+frogID_data_wrangled <- frogID_data |>
+  mutate(
+    event_date_month = month(eventDate, label = TRUE, abbr = FALSE) # get the month
+  ) |>
+  mutate( # label the season by the month
+    season = case_when(
+      event_date_month %in% c("December", "January", "February") ~ "Summer",
+      event_date_month %in% c("March", "April", "May") ~ "Fall",
+      event_date_month %in% c("June", "July", "August") ~ "Winter",
+      TRUE ~ "Spring"
+    ),
+    season = fct_relevel(season, "Spring", "Summer", "Fall", "Winter") # relevel to this order
+  )
 ```
 
 ## Plots
 
-```{r}
-penguins |>
-  mutate(species = ifelse(species == "Adelie", "Adelie", "Other")) |>
-  ggplot(aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
-  geom_point()
+::: {layout-ncol="2"}
+```{r provinces}
+oz_states |>
+  ggplot() +
+  geom_sf() +
+  geom_label_repel(aes(label = NAME, geometry = geometry), # add state and territories labels
+                   stat = "sf_coordinates",
+                   min.segment.length = 0) +
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    title = "Australian States and Territories"
+  )
+```
+
+```{r calls by season}
+ggplot() +
+  geom_sf(data = oz_states) + # map the states
+  geom_point(data = frogID_data_wrangled, # map the frog calls by season
+             aes(x = decimalLongitude, y = decimalLatitude, 
+                 color = season, shape = season), 
+                 alpha = 0.5) +
+  scale_color_manual(
+    values = c("#680e03", "#f94994", "#61bf9a", "#031730")
+  ) +
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    title = "Frog Calls in Australia by Season",
+    color = "Season",
+    shape = "Season"
+  ) 
+```
+:::
+
+## Seasons
+
+```{r fig.width = 12}
+ggplot() +
+  geom_sf(data = oz_states) + # map the states
+  geom_point(data = frogID_data_wrangled, # map the frog calls by season
+             aes(x = decimalLongitude, y = decimalLatitude, 
+                 color = season, shape = season), 
+                 alpha = 0.5) +
+  facet_wrap( ~ season, ncol = 2) +
+  scale_color_manual(
+    values = c("#680e03", "#f94994", "#61bf9a", "#031730")
+  ) +
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    title = "Frog Calls in Australia by Season"
+  ) +
+  theme(
+    legend.position = "none",
+    plot.title.position = "plot"
+  )
 ```
 
 ## Plot and text
