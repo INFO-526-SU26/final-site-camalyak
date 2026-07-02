@@ -63,7 +63,7 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
 
 **Question 1:** What is the spatiotemporal distribution of Australian frog occurrences, and how does call frequency change across seasons?
 
--   **Spatiotemporal:** in relation to both space and time
+-   **Spatiotemporal:** in relation to both space and time.
 
     -   For example, how does Australian frog occurrences change with season (time) and location in Australia (space).
 
@@ -105,15 +105,15 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
 -   Determine what is considered the equatorial, tropical, subtropical, desert, grassland, temperate.
 -   To determine taxonomic diversity, use the `subfamily` or `tribe`. A tribe is part of a subfamily. A subfamily may be too broad for the frog species and not show the true diversity. If that is so, I will use `tribe` to showcase the diversity.
     -   Plot the number of different subfamilies/tribes per geographical region.
-    -   Graph another plot that a stacked bar char with the different subfamilies or tribes.
+    -   Graph another plot that is a stacked bar chart with the different subfamilies or tribes.
 -   Data wrangling:
     -   Variables used: `subfamily`, `tribe`, `decimalLatitude`, `decimalLongitude`
-    -   Variables need to create: `geo_region`
+    -   Variables need to create: `climate_zone`
     -   External data:
-        -   Australian Bureau of Meteorology (grographic areas): [Australian Bureau of Meteorology](https://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=koppen_major_AGCDv2_&period=1991-2020)
-        -   Austalian states: [Ozmaps](https://github.com/mdsumner/ozmaps/)
+        -   Australian Bureau of Meteorology (geographic areas): [Australian Bureau of Meteorology](https://www.bom.gov.au/climate/maps/averages/climate-classification/?maptype=koppen_major_AGCDv2_&period=1991-2020)
+        -   Australian states: [Ozmaps](https://github.com/mdsumner/ozmaps/)
     -   Join the geographical regions by location to the frogID data frame using the external data from package `Ozmaps` and the climate classification by the Australian Bureau of Meteorology.
-    -   Approach: Make a map of Australia defined by the different geographical regions equatorial, tropical, subtropical, desert, grassland, temperate. Create a bar chart for the number of species per geographical region (x-axis: region; y-axis: number of different subfamilies/tribes).
+    -   Approach: Make a map of Australia defined by the different climate zones equatorial, tropical, subtropical, desert, grassland, temperate. Create a bar chart for the number of species per climate zone (x-axis: region; y-axis: number of different subfamilies/tribes) and state.
 
 ## Weekly project plan table
 

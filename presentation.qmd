@@ -66,7 +66,7 @@ frog_names <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience
 climate_data <- rast("data/koppen_major_1991-2020.nc")
 ```
 
-# What is FrogID?
+# What is FrogID and Why?
 
 ## FrogID
 
@@ -100,7 +100,11 @@ climate_data <- rast("data/koppen_major_1991-2020.nc")
 ::: incremental
 1.  What is the spatiotemporal distribution of Australian frog occurrences, and how does call frequency change across seasons?
 
+    -   **Spatiotemporal:** in relation to both space and time.
+
 2.  Do geographic areas with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?
+
+    -   **Taxonomy:** classification of organisms --- different species will determine diversity.
 :::
 
 # Code
@@ -148,8 +152,38 @@ climate_sf <- climate_sf |>
       climate_zone == 3 ~ "Desert",
       climate_zone == 4 ~ "Grassland",
       climate_zone == 5 ~ "Temperate"
-    )
+    ),
+    climate_zone = fct_relevel(climate_zone,
+                               "Equitorial",
+                               "Tropical",
+                               "Subtropical",
+                               "Desert",
+                               "Grassland",
+                               "Temperate")
   )
+```
+
+## Data wrangling - climate + frog calls
+
+```{r}
+frog_sf <- frogID_data_wrangled |>
+  filter(!is.na(decimalLongitude), !is.na(decimalLatitude)) |>
+  st_as_sf(
+    coords = c("decimalLongitude", "decimalLatitude"),
+    crs = st_crs(climate_sf),
+    remove = FALSE
+  )
+```
+
+## Data wrangling - taxonomy
+
+```{r taxonomy data wrangling, echo=TRUE}
+frog_names_unique <- frog_names |>
+  distinct(scientificName, .keep_all = TRUE)
+
+frogID_data_wrangled2 <- left_join(frogID_data_wrangled, frog_names_unique, 
+                                   by = "scientificName") |>
+  filter(!is.na(tribe))
 ```
 
 # Plots
@@ -212,27 +246,27 @@ ggplot() +
 
 ```{r fig.width = 16}
 frogID_data_wrangled |>
-  group_by(stateProvince, season) |>
+  group_by(stateProvince, season) |> 
   summarise(
-    call_count = n(),
+    call_count = n(), # determine how many calls per season within each state
     .groups = "drop"
   ) |>
-  group_by(season) |>
+  group_by(season) |> # group by season
   mutate(
-    percent_calls = call_count / sum(call_count), 
+    percent_calls = call_count / sum(call_count), # determine the percent of calls
     stateProvince = fct_reorder(stateProvince, percent_calls, .desc = TRUE)
   ) |>
   ungroup() |>
-  filter(!is.na(stateProvince), !is.na(season)) |>
+  filter(!is.na(stateProvince), !is.na(season)) |> 
   ggplot(aes(x = stateProvince, 
              y = percent_calls,
              fill = stateProvince)) +
-  geom_bar(stat = "identity") +
+  geom_bar(stat = "identity") + # plot percentage
   geom_label(
-    aes(label = percent(percent_calls, accuracy = 0.1)),
+    aes(label = percent(percent_calls, accuracy = 0.1)), # only to one decimal
     size = 2.5
   ) +
-  coord_cartesian(clip = "off") +
+  coord_cartesian(clip = "off") + # avoid clipping off labels
   facet_wrap(~ season, ncol = 2) +
   scale_x_discrete(labels = label_wrap_gen(10)) +
   scale_y_continuous(labels = label_percent()) +
@@ -250,33 +284,97 @@ frogID_data_wrangled |>
   )
 ```
 
-## Summary
+## Australian Climate Zones
 
-::: incremental
--   Frog calls occur the most in New South Wales during the spring, summer, and fall.
--   In the winter, most calls occur in Victoria followed by New South Wales.
--   In the summer, calls spike in Queensland.
-:::
-
-## Plot and text
-
-::: columns
-::: {.column width="50%"}
-::: {.column width="50%"}
-:::
-
-```{r, warning=FALSE, fig.width=5.5}
+```{r, warning=FALSE}
 climate_sf |>
-  ggplot(aes(fill = climate_zone)) +
-  geom_sf() +
+  ggplot() +
+  geom_sf(aes(fill = climate_zone), 
+          linewidth = 0.1) +
+  geom_sf(data = oz_states, # add the Australian states on top of the climate zones
+          fill = NA, 
+          color = "black",
+          linewidth = 0.25,
+          linetype = "dashed") +
+  scale_fill_manual(
+    values = c("tan3", "olivedrab", "olivedrab1", 
+               "darkorange", "lightgoldenrod", "lightskyblue")
+  ) +
   labs(
-    title = "Australian States and Territories",
-    subtitle = "Separated by climate zones",
-    fill = "Climate Zone"
+    title = "Australian Climate Zones",
+    fill = "Climate Zone",
+    x = "Longitude",
+    y = "Latitude"
   )
 ```
-:::
-:::
+
+## Tribe Distribution
+
+```{r fig.width = 12}
+ggplot() +
+  geom_sf(data = climate_sf,
+          aes(fill = climate_zone)) +
+  geom_point(data = frogID_data_wrangled2,
+             aes(x = decimalLongitude, y = decimalLatitude),
+             alpha = 0.3,
+             color = "grey20") +
+  facet_wrap(~tribe, ncol = 3) +
+  scale_fill_manual(
+    values = c("tan3", "olivedrab", "olivedrab1", 
+               "darkorange", "lightgoldenrod", "lightskyblue")
+  ) +
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    fill = "Climate Zone",
+    title = "Distribution of Tribes Across Climate Zones"
+  ) +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 16, face = "bold")
+  )
+```
+
+## Taxonomic Diversity - State
+
+```{r fig.width=12}
+frogID_data_wrangled2 |>
+  group_by(stateProvince, tribe) |> 
+  summarise(
+    tribe_count = n(),
+    .groups = "drop"
+  ) |>
+  group_by(stateProvince) |> # group by state
+  mutate(
+    percent_tribes = tribe_count / sum(tribe_count) # percent within each state
+  ) |>
+  ungroup() |>
+  filter(!is.na(stateProvince), !is.na(tribe)) |> 
+  ggplot(aes(x = stateProvince, 
+             y = percent_tribes,
+             fill = tribe)) +                        
+  geom_bar(stat = "identity", position = "fill") +
+  geom_text(
+    aes(label = percent(percent_tribes, accuracy = 0.1)),
+    position = position_stack(vjust = 0.5),
+    size = 2.5,
+    show.legend = FALSE
+  ) +
+  scale_x_discrete(labels = label_wrap_gen(10)) +
+  scale_y_continuous(labels = label_percent()) +
+  theme_minimal() +
+  labs(
+    x = NULL,
+    y = "Percentage of Frog Calls",
+    fill = "Tribe",
+    title = "Percentage of Frog Calls by Tribe, within Each State"
+  ) +
+  theme(
+    axis.text.x = element_text(size = 10),
+    plot.title = element_text(face = "bold", size = 16)
+  )
+```
+
+## Taxonomic Diversity - Climate Zone
 
 # A new section...
 
@@ -295,25 +393,17 @@ penguins |>
 
 ![Image credit: Danielle Navarro, Percolate.](images/watercolour_sys02_img34_teacup-ocean.png){fig-align="center" width="500"}
 
-## Math Expressions {.smaller}
+# Conclusions
 
-You can write LaTeX math expressions inside a pair of dollar signs, e.g. \$\\alpha+\\beta\$ renders $\alpha + \beta$. You can use the display style with double dollar signs:
+# Q1:
 
-```         
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
-```
+-   Frog calls occur the most in New South Wales during the spring, summer, and fall.
+-   In the winter, most calls occur in Victoria followed by New South Wales.
+-   In the summer, calls spike in Queensland.
 
-$$
-\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
-$$
+# Q2:
 
-Limitations:
-
-1.  The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
-
-2.  There should not be spaces after the opening `$` or before the closing `$`.
-
-# Wrap up
+-   
 
 ## Feeling adventurous?
 
