@@ -83,9 +83,9 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
 
     -   Use `decimalLatitude` and `decimalLongitude` variables to plot where each of these calls are taking place in Australia. Additionally, map out the states using the `stateProvince` variable.
 
-        -   Map the states
+        -   Map the states and where each frog call is occurring on the map.
 
-        -   Make four different plots for each season -- in each plot is a map of Australia and its states with the density of frog occurrences perhaps using a heat map.
+-   Make four different plots for each season -- in each plot is a bar chart showing how the number of calls differ across seasons and provinces.
 
 -   Data wrangling:
 
@@ -118,13 +118,13 @@ I majored in biology in undergraduate and really enjoyed the ecology electives I
 ## Weekly project plan table
 
 | **Task Name**                       | **Status**  | **Due** | **Priority** | **Summary**                            |
-|-----------------|------------|------------|------------|-------------------|
+|---------------|---------------|---------------|---------------|---------------|
 | Peer review                         | Complete    | 6/12/26 | High         | Reach out to peer reviewers            |
 | Make adjustments after peer reviews | Complete    | 6/12/26 | Moderate     | Waiting for 2nd peer review            |
 | Data wrangling                      | Complete    | 6/17/26 | High         | Need to make new variables for seasons |
 | Explore Ozmaps                      | Complete    | 6/17/26 | Moderate     | See what the Ozmaps package includes   |
-| Question 1                          | In progress | 6/28/26 | High         | Data wrangle and plots                 |
-| Question 2                          | Not started | 6/28/26 | High         | Data wrangle and plots                 |
+| Question 1                          | Complete    | 6/28/26 | High         | Data wrangle and plots                 |
+| Question 2                          | In progress | 6/28/26 | High         | Data wrangle and plots                 |
 | Write-up                            | In progress | 7/3/26  | High         | Dataset overview & workflow            |
 | Presentation                        | In progress | 7/3/26  | High         | Slides and video presentaion           |
 | Final project due                   | In progress | 7/3/26  | High         | Upload to Github                       |

@@ -1,5 +1,5 @@
 ---
-title: "Project title"
+title: "Exploring Australian Frog Data from FrogID"
 subtitle: "INFO 526 - Summer 2026 - Final Project"
 author: "Kayla Mac"
 title-slide-attributes:
@@ -10,7 +10,7 @@ title-slide-attributes:
 format:
   revealjs:
     theme:  ['data/customtheming.scss']
-  
+    transition: slide
 editor: visual
 execute:
   warning: false
@@ -29,7 +29,11 @@ pacman::p_load(tidymodels,
                tidyverse,
                sf,
                ozmaps,
-               ggrepel)
+               ggrepel,
+               terra,
+               ncdf4,
+               scales,
+               patchwork)
 ```
 
 ```{r}
@@ -57,46 +61,62 @@ frogID_data <- readr::read_csv('https://raw.githubusercontent.com/rfordatascienc
 
 # Frog name data
 frog_names <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-09-02/frog_names.csv')
+
+# climate data
+climate_data <- rast("data/koppen_major_1991-2020.nc")
 ```
 
-# Using Quarto for presentations
+# What is FrogID?
 
-## Quarto
+## FrogID
 
--   The presentation is created using the Quarto CLI
+-   Australian frogs are combating habitat loss, disease, and global warming
 
--   `##` sets the start of a new slide
+-   FrogID is an Australian app that allows people to submit frog calls
 
-## Layouts
+-   Museum experts use the call and identify the type of frog
 
-You can use plain text
+-   This information is used to better understand and conserve Australian frogs
 
-::: columns
-::: {.column width="40%"}
--   or bullet points[^1]
+# Exploring the Data
+
+## Two Datasets
+
+::: incremental
+### FrogID Data
+
+-   Contains when and where the frog call occurred
+
+    -   Includes the date, longitude, latitude, state province
+
+### Frog_names Data
+
+-   Contains the frog's taxonomic status
+    -   Includes their scientific names and secondary common names
 :::
 
-::: {.column width="60%"}
-or in two columns
+## Questions
+
+::: incremental
+1.  What is the spatiotemporal distribution of Australian frog occurrences, and how does call frequency change across seasons?
+
+2.  Do geographic areas with the highest density of frog occurrences also exhibit the highest levels of taxonomic diversity?
 :::
-:::
 
-[^1]: And add footnotes
-
--   like
-
--   this
-
-## Code
+# Code
 
 ```{r, echo=FALSE}
 oz_states <- ozmaps::ozmap_states
 ```
 
-```{r season wrangling}
+## Data wrangling - seasons
+
+```{r season wrangling, echo=TRUE}
 frogID_data_wrangled <- frogID_data |>
   mutate(
-    event_date_month = month(eventDate, label = TRUE, abbr = FALSE) # get the month
+    event_date_month = month(eventDate, 
+                             label = TRUE, 
+                             abbr = FALSE) # get the month
   ) |>
   mutate( # label the season by the month
     season = case_when(
@@ -105,27 +125,67 @@ frogID_data_wrangled <- frogID_data |>
       event_date_month %in% c("June", "July", "August") ~ "Winter",
       TRUE ~ "Spring"
     ),
-    season = fct_relevel(season, "Spring", "Summer", "Fall", "Winter") # relevel to this order
+    season = fct_relevel(season, 
+                         "Spring", "Summer", "Fall", "Winter") # relevel to this order
   )
 ```
 
-## Plots
+## Data wrangling - climate
+
+```{r climate data wrangling, echo=TRUE}
+climate_poly_sf <- as.polygons(climate_data) # convert from SpatRaster to SpatVector
+climate_sf <- st_as_sf(climate_poly_sf) # make sf object
+
+climate_sf <- climate_sf |>
+  rename(
+    climate_zone = stern_dehoedt_2000_major # rename column
+  ) |>
+  mutate( # change the zones to their climate
+    climate_zone = case_when(
+      climate_zone == 0 ~ "Equitorial",
+      climate_zone == 1 ~ "Tropical",
+      climate_zone == 2 ~ "Subtropical",
+      climate_zone == 3 ~ "Desert",
+      climate_zone == 4 ~ "Grassland",
+      climate_zone == 5 ~ "Temperate"
+    )
+  )
+```
+
+# Plots
+
+## Australian States and Territories
+
+::: incremental
+::: incremental
+<div>
+
+Majority of calls seems to occur in the southeastern provinces regardless of the season.
+
+</div>
+:::
 
 ::: {layout-ncol="2"}
+::: column
 ```{r provinces}
-oz_states |>
+oz_states_plot <- oz_states |>
   ggplot() +
   geom_sf() +
   geom_label_repel(aes(label = NAME, geometry = geometry), # add state and territories labels
                    stat = "sf_coordinates",
-                   min.segment.length = 0) +
+                   min.segment.length = 0,
+                   size = 3) +
   labs(
     x = "Longitude",
     y = "Latitude",
     title = "Australian States and Territories"
   )
-```
 
+print(oz_states_plot)
+```
+:::
+
+::: column
 ```{r calls by season}
 ggplot() +
   geom_sf(data = oz_states) + # map the states
@@ -134,7 +194,7 @@ ggplot() +
                  color = season, shape = season), 
                  alpha = 0.5) +
   scale_color_manual(
-    values = c("#680e03", "#f94994", "#61bf9a", "#031730")
+    values = c("#0F85A0FF", "#EDD746FF", "#DD4124FF", "#00496FFF")
   ) +
   labs(
     x = "Longitude",
@@ -145,48 +205,75 @@ ggplot() +
   ) 
 ```
 :::
+:::
+:::
 
-## Seasons
+## Frog Calls within States and Seasons
 
-```{r fig.width = 12}
-ggplot() +
-  geom_sf(data = oz_states) + # map the states
-  geom_point(data = frogID_data_wrangled, # map the frog calls by season
-             aes(x = decimalLongitude, y = decimalLatitude, 
-                 color = season, shape = season), 
-                 alpha = 0.5) +
-  facet_wrap( ~ season, ncol = 2) +
-  scale_color_manual(
-    values = c("#680e03", "#f94994", "#61bf9a", "#031730")
+```{r fig.width = 16}
+frogID_data_wrangled |>
+  group_by(stateProvince, season) |>
+  summarise(
+    call_count = n(),
+    .groups = "drop"
+  ) |>
+  group_by(season) |>
+  mutate(
+    percent_calls = call_count / sum(call_count), 
+    stateProvince = fct_reorder(stateProvince, percent_calls, .desc = TRUE)
+  ) |>
+  ungroup() |>
+  filter(!is.na(stateProvince), !is.na(season)) |>
+  ggplot(aes(x = stateProvince, 
+             y = percent_calls,
+             fill = stateProvince)) +
+  geom_bar(stat = "identity") +
+  geom_label(
+    aes(label = percent(percent_calls, accuracy = 0.1)),
+    size = 2.5
   ) +
+  coord_cartesian(clip = "off") +
+  facet_wrap(~ season, ncol = 2) +
+  scale_x_discrete(labels = label_wrap_gen(10)) +
+  scale_y_continuous(labels = label_percent()) +
+  theme_minimal() +
   labs(
-    x = "Longitude",
-    y = "Latitude",
-    title = "Frog Calls in Australia by Season"
+    x = NULL,
+    y = "Percentage of Frog Calls",
+    title = "Percentage of Frog Calls by State, per Season"
   ) +
   theme(
     legend.position = "none",
-    plot.title.position = "plot"
+    axis.text.x = element_text(size = 12),
+    strip.text = element_text(face = "bold", size = 12),
+    plot.title = element_text(face = "bold", size = 16)
   )
 ```
+
+## Summary
+
+::: incremental
+-   Frog calls occur the most in New South Wales during the spring, summer, and fall.
+-   In the winter, most calls occur in Victoria followed by New South Wales.
+-   In the summer, calls spike in Queensland.
+:::
 
 ## Plot and text
 
 ::: columns
 ::: {.column width="50%"}
--   Some text
-
--   goes here
+::: {.column width="50%"}
 :::
 
-::: {.column width="50%"}
 ```{r, warning=FALSE, fig.width=5.5}
-penguins |>
-  ggplot(aes(x = bill_length_mm, y = species, color = species)) +
-  geom_boxplot(linewidth = 0.75,
-               outlier.size = 2.5) +
-  theme_minimal(base_size = 15) +
-  theme(legend.key.size = unit(0.8, "cm"))
+climate_sf |>
+  ggplot(aes(fill = climate_zone)) +
+  geom_sf() +
+  labs(
+    title = "Australian States and Territories",
+    subtitle = "Separated by climate zones",
+    fill = "Climate Zone"
+  )
 ```
 :::
 :::

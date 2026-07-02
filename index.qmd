@@ -1,11 +1,11 @@
 ---
-title: "Project Title"
+title: "Exploring Australian Frog Data from FrogID"
 subtitle: "INFO 526 - Summer 2024 - Final Project"
 author: 
-  - name: "Team name"
+  - name: "Kayla Mac"
     affiliations:
       - name: "School of Information, University of Arizona"
-description: "Project description"
+description: "Using data from an Australian application, FrogID, two questions will be answered: how does frog call frequency across seasons and how does taxonomic diversity differ across Australia."
 format:
    html:
     code-tools: true
@@ -19,4 +19,4 @@ execute:
 
 ## Abstract
 
-Add project abstract here.
+This project investigates the spatiotemporal distribution and taxonomic diversity of Australian frog populations using 2023 monitoring data from the FrogID mobile application. The analysis maps seasonal fluctuations in frog call frequencies across Australia's states and evaluates how occurrence density aligns with regional geography. Spatial analysis reveals that frog call reports are heavily concentrated in the southeastern provinces of Australia, specifically New South Wales, Victoria, and Queensland. While New South Wales consistently yields the highest volume of frog calls during the spring, summer, and fall, a shift occurs in the winter, where recording activity peaks in Victoria. Furthermore, summer months trigger a sharp spike in frog calls in Queensland.
